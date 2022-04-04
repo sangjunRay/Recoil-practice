@@ -1,6 +1,7 @@
 import React from "react";
+import { RecoilRoot } from "recoil";
 import { createGlobalStyle } from "styled-components";
-import TodoList from "./TodoList";
+import TodoList from "./components/TodoList";
 
 const Globalstyled = createGlobalStyle`
  /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -56,8 +57,10 @@ table {
 function App() {
   return (
     <>
+	  <RecoilRoot>
       <Globalstyled />
       <TodoList />
+	  </RecoilRoot>
     </>
   );
 }
