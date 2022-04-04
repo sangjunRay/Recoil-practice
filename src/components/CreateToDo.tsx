@@ -15,9 +15,13 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
+    all: unset;
     padding: 1rem;
     width: 100%;
     margin-bottom: 2rem;
+    background-color: ${props => props.theme.containerColor};
+    color: ${props => props.theme.color};
+    border-radius: 5px;
 `
 
 const AddButton = styled.button`

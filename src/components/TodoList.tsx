@@ -1,15 +1,17 @@
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import styled from "styled-components";
-import { toDoState } from "../atom";
+import { darkMode, toDoState } from "../atom";
 import { Font } from "../common/font";
 import CreateToDo from "./CreateToDo";
 import ToDo from "./ToDo";
 
 const Container = styled.section`
   display: flex;
-  justify-content: center;
+  height: 100vh;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  background-color: ${props => props.theme.bgColor};
 `;
 
 const Header = styled.header`
@@ -22,7 +24,7 @@ const Header = styled.header`
 
 const ToDoContainer = styled.section`
   width: 455px;
-  background-color: rgb(240, 240, 240);
+  background-color: ${props => props.theme.containerColor};
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 5px;
@@ -30,6 +32,9 @@ const ToDoContainer = styled.section`
 
 const TodoList = () => {
   const toDos = useRecoilValue(toDoState);
+  const setDarkFunction = useSetRecoilState(darkMode);
+  const darkmode = useRecoilValue(darkMode);
+
   return (
     <Container>
       <Header>
@@ -38,6 +43,7 @@ const TodoList = () => {
         </Font>
         <a href="https://recoiljs.org/ko/">https://recoiljs.org/ko/</a>
       </Header>
+      <button onClick={() => darkmode===false ? setDarkFunction(true) : setDarkFunction(false)}>{darkmode ? 'Light' : 'Dark'}</button>
       <CreateToDo />
       <ToDoContainer style={{ boxSizing: "border-box" }}>
       <Font style={{marginBottom:'1rem'}} fontSize='1.2rem' fontWeight='600' fontColor='#19248b'>Just Do It!</Font>
