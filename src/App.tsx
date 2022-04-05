@@ -65,6 +65,7 @@ const darkTheme = {
 
 const lightTheme = {
   color: "black",
+  containerColor: "rgb(220,220,220)"
   
 };
 

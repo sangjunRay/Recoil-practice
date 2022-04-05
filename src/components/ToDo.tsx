@@ -14,7 +14,7 @@ const ToDo = ({ text, category, id }: IToDo) => {
       <Font fontSize="1rem" fontWeight="700" fontColor="black" marginRight='1rem'>
         {text}
       </Font>
-      <Font fontSize="0.8rem" fontWeight="400" fontColor="#36a36d">
+      <Font fontSize="0.8rem" fontWeight="400" style={{color:'#36a36d'}}>
         {category}
       </Font>
     </TodoStyle>

@@ -22,6 +22,7 @@ const Input = styled.input`
     background-color: ${props => props.theme.containerColor};
     color: ${props => props.theme.color};
     border-radius: 5px;
+    margin-top: 1rem;
 `
 
 const AddButton = styled.button`
