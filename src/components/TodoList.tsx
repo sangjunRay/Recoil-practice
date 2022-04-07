@@ -93,7 +93,7 @@ function TodoList() {
             <ToDo
               key={todo.id}
               text={todo.text}
-              id={+todo.category}
+              id={+todo.id}
               category={todo.category}
             />
           ))

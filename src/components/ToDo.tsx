@@ -1,10 +1,12 @@
+import { useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { IToDo } from '../atom';
+import { IToDo, toDoState } from '../atom';
 import { Font } from '../common/font';
 
 const TodoStyle = styled.li`
   display: flex;
   margin: 1rem;
+  transition: 0.3s;
 `;
 
 const StateBtnBox = styled.div`
@@ -34,8 +36,13 @@ const StateBtn = styled.button`
 `;
 
 function ToDo({ text, category, id }: IToDo) {
+  const setToDo = useSetRecoilState(toDoState);
   const onClickCategory = (newCategory: IToDo['category']) => {
-    console.log(`this job state: ${newCategory}`);
+    setToDo((prevToDos) => {
+      const targetToDo = prevToDos.findIndex((toDo) => toDo.id === id);
+      const newToDo = { text, id, category: newCategory };
+      return [...prevToDos.slice(0, targetToDo), newToDo, ...prevToDos.slice(targetToDo + 1)];
+    });
   };
   return (
     <TodoStyle key={id}>
