@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
-import { useSetRecoilState } from "recoil";
-import styled from "styled-components";
-import { toDoState } from "../atom";
+import { useForm } from 'react-hook-form';
+import { useSetRecoilState } from 'recoil';
+import styled from 'styled-components';
+import { toDoState } from '../atom';
 
 interface IForm {
   toDo: string;
@@ -12,19 +12,19 @@ const Form = styled.form`
     justify-content: center;
     align-items: center;
     width: 450px;
-`
+`;
 
 const Input = styled.input`
     all: unset;
     padding: 1rem;
     width: 100%;
     margin-bottom: 2rem;
-    background-color: ${props => props.theme.containerColor};
-    color: ${props => props.theme.color};
+    background-color: ${(props) => props.theme.containerColor};
+    color: ${(props) => props.theme.color};
     border-radius: 5px;
     margin-top: 1rem;
     transition: 0.3s linear;
-`
+`;
 
 const AddButton = styled.button`
     all: unset;
@@ -43,27 +43,27 @@ const AddButton = styled.button`
     :hover {
         opacity: 0.8;
     }
-`
+`;
 
-const CreateToDo = () => {
+function CreateToDo() {
   const setToDos = useSetRecoilState(toDoState);
   const { register, handleSubmit } = useForm<IForm>();
   const handleValid = ({ toDo }: IForm) => {
     setToDos((prevToDos) => [
-      { text: toDo, category: "진행 예정", id: Date.now() },
+      { text: toDo, category: '진행 예정', id: Date.now() },
       ...prevToDos,
     ]);
   };
   return (
-      <Form onSubmit={handleSubmit(handleValid)}>
-        <Input
-          {...register("toDo", { required: "작성해야합니다." })}
-          placeholder="할 일을 적어주세요."
-          autoComplete='off'
-        />
-        <AddButton>+</AddButton>
-      </Form>
+    <Form onSubmit={handleSubmit(handleValid)}>
+      <Input
+        {...register('toDo', { required: '작성해야합니다.' })}
+        placeholder="할 일을 적어주세요."
+        autoComplete="off"
+      />
+      <AddButton>+</AddButton>
+    </Form>
   );
-};
+}
 
 export default CreateToDo;

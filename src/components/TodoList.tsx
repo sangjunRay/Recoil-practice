@@ -1,9 +1,9 @@
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import styled from "styled-components";
-import { darkMode, toDoState } from "../atom";
-import { Font } from "../common/font";
-import CreateToDo from "./CreateToDo";
-import ToDo from "./ToDo";
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import styled from 'styled-components';
+import { darkMode, toDoState } from '../atom';
+import { Font } from '../common/font';
+import CreateToDo from './CreateToDo';
+import ToDo from './ToDo';
 
 const Container = styled.section`
   display: flex;
@@ -54,7 +54,7 @@ const DarkModeArticle = styled.article`
   flex-direction: column;
 `;
 
-const TodoList = () => {
+function TodoList() {
   const toDos = useRecoilValue(toDoState);
   const setDarkFunction = useSetRecoilState(darkMode);
   const darkmode = useRecoilValue(darkMode);
@@ -69,9 +69,7 @@ const TodoList = () => {
       </Header>
       <DarkModeArticle>
         <DarkBtn
-          onClick={() =>
-            darkmode === false ? setDarkFunction(true) : setDarkFunction(false)
-          }
+          onClick={() => (darkmode === false ? setDarkFunction(true) : setDarkFunction(false))}
         >
           {darkmode ? <p>☀️</p> : <p>🌔</p>}
         </DarkBtn>
@@ -80,9 +78,9 @@ const TodoList = () => {
         </Font>
       </DarkModeArticle>
       <CreateToDo />
-      <ToDoContainer style={{ boxSizing: "border-box" }}>
+      <ToDoContainer style={{ boxSizing: 'border-box' }}>
         <Font
-          style={{ marginBottom: "1rem" }}
+          style={{ marginBottom: '1rem' }}
           fontSize="1.2rem"
           fontWeight="600"
           fontColor="#19248b"
@@ -106,6 +104,6 @@ const TodoList = () => {
       </ToDoContainer>
     </Container>
   );
-};
+}
 
 export default TodoList;

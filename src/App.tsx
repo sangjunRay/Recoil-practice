@@ -1,8 +1,8 @@
-import React from "react";
-import { useRecoilValue } from "recoil";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { darkMode } from "./atom";
-import TodoList from "./components/TodoList";
+import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { darkMode } from './atom';
+import TodoList from './components/TodoList';
 
 const Globalstyled = createGlobalStyle`
  /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -58,28 +58,26 @@ table {
 `;
 
 const darkTheme = {
-  color: "white",
-  bgColor: "rgb(60,60,60)",
-  containerColor: "rgb(30,30,30)",
-  textAlign: "flex-end",
+  color: 'white',
+  bgColor: 'rgb(60,60,60)',
+  containerColor: 'rgb(30,30,30)',
+  textAlign: 'flex-end',
 };
 
 const lightTheme = {
-  color: "black",
-  containerColor: "rgb(220,220,220)",
-  textAlign: "flex-start",
-  bgColor: "white",
+  color: 'black',
+  containerColor: 'rgb(220,220,220)',
+  textAlign: 'flex-start',
+  bgColor: 'white',
 };
 
 function App() {
   const darkmode = useRecoilValue(darkMode);
   return (
-    <>
-      <ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
-        <Globalstyled />
-        <TodoList />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
+      <Globalstyled />
+      <TodoList />
+    </ThemeProvider>
   );
 }
 

@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLDivElement);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
 
 root.render(
   <React.StrictMode>
     <RecoilRoot>
-    <App />
+      <App />
     </RecoilRoot>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
