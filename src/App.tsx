@@ -59,14 +59,16 @@ table {
 
 const darkTheme = {
   color: "white",
-  bgColor: 'rgb(60,60,60)',
-  containerColor: 'rgb(30,30,30)',
+  bgColor: "rgb(60,60,60)",
+  containerColor: "rgb(30,30,30)",
+  textAlign: "flex-end",
 };
 
 const lightTheme = {
   color: "black",
-  containerColor: "rgb(220,220,220)"
-  
+  containerColor: "rgb(220,220,220)",
+  textAlign: "flex-start",
+  bgColor: "white",
 };
 
 function App() {

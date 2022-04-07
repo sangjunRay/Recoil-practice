@@ -23,6 +23,7 @@ const Input = styled.input`
     color: ${props => props.theme.color};
     border-radius: 5px;
     margin-top: 1rem;
+    transition: 0.3s linear;
 `
 
 const AddButton = styled.button`
