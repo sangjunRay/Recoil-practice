@@ -5,6 +5,7 @@ interface IFont {
   fontWeight: string;
   fontColor?: string;
   marginRight?: string;
+  marginBottom? : string;
 }
 
 export const Font = styled.p<IFont>`
@@ -12,4 +13,5 @@ export const Font = styled.p<IFont>`
     font-weight: ${(props) => props.fontWeight};
     color: ${(props) => props.theme.color};
     margin-right: ${(props) => props.marginRight};
+    margin-bottom: ${(props) => props.marginBottom};
 `;

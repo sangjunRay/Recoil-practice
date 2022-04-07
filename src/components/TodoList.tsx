@@ -7,12 +7,12 @@ import ToDo from './ToDo';
 
 const Container = styled.section`
   display: flex;
-  height: 100vh;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background-color: ${(props) => props.theme.bgColor};
   transition: 0.3s linear;
+  height: 100vh;
 `;
 
 const Header = styled.header`
@@ -30,6 +30,7 @@ const ToDoContainer = styled.section`
   box-sizing: border-box;
   border-radius: 5px;
   transition: 0.3s linear;
+  margin-bottom: 3rem;
 `;
 
 const DarkBtn = styled.button`
@@ -80,10 +81,10 @@ function TodoList() {
       <CreateToDo />
       <ToDoContainer style={{ boxSizing: 'border-box' }}>
         <Font
-          style={{ marginBottom: '1rem' }}
           fontSize="1.2rem"
           fontWeight="600"
           fontColor="#19248b"
+          marginBottom="2rem"
         >
           Just Do It!
         </Font>

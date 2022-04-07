@@ -8,6 +8,16 @@
     "airbnb-typescript"
   ],
   "parserOptions": {
-      "project": "./tsconfig.json"
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    // suppress errors for missing 'import React' in files
+    "react/react-in-jsx-scope": "off",
+    "quotes": ["off", "single"],
+    // allow jsx syntax in js files (for next.js project)
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }], //should add ".ts" if typescript project
+    "no-tabs": 0,
+    "import/prefer-default-export": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }
