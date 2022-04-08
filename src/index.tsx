@@ -6,9 +6,9 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLDivElement);
 
 root.render(
-  <React.StrictMode>
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
-  </React.StrictMode>,
+	<React.StrictMode>
+		<RecoilRoot>
+			<App />
+		</RecoilRoot>
+	</React.StrictMode>
 );

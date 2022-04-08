@@ -58,27 +58,27 @@ table {
 `;
 
 const darkTheme = {
-  color: 'white',
-  bgColor: 'rgb(60,60,60)',
-  containerColor: 'rgb(30,30,30)',
-  textAlign: 'flex-end',
+	color: 'white',
+	bgColor: 'rgb(50,50,50)',
+	containerColor: 'rgb(30,30,30)',
+	textAlign: 'flex-end',
 };
 
 const lightTheme = {
-  color: 'black',
-  containerColor: 'rgb(220,220,220)',
-  textAlign: 'flex-start',
-  bgColor: 'white',
+	color: 'black',
+	containerColor: 'rgb(220,220,220)',
+	textAlign: 'flex-start',
+	bgColor: 'white',
 };
 
 function App() {
-  const darkmode = useRecoilValue(darkMode);
-  return (
-    <ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
-      <Globalstyled />
-      <TodoList />
-    </ThemeProvider>
-  );
+	const darkmode = useRecoilValue(darkMode);
+	return (
+		<ThemeProvider theme={darkmode ? darkTheme : lightTheme}>
+			<Globalstyled />
+			<TodoList />
+		</ThemeProvider>
+	);
 }
 
 export default App;
