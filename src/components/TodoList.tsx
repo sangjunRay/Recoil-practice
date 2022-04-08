@@ -1,6 +1,6 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { darkMode, toDoState } from '../atom';
+import { darkMode, toDoCounterSelector, toDoStateSelector } from '../atom';
 import { Font } from '../common/font';
 import CreateToDo from './CreateToDo';
 import ToDo from './ToDo';
@@ -56,11 +56,10 @@ const DarkModeArticle = styled.article`
 `;
 
 function TodoList() {
-	const toDos = useRecoilValue(toDoState);
-	console.log(toDos, '할 일');
 	const setDarkFunction = useSetRecoilState(darkMode);
 	const darkmode = useRecoilValue(darkMode);
-
+	const toDoCount = useRecoilValue(toDoCounterSelector);
+	const [doing, toDo, done] = useRecoilValue(toDoStateSelector);
 	return (
 		<Container>
 			<Header>
@@ -79,14 +78,40 @@ function TodoList() {
 			</DarkModeArticle>
 			<CreateToDo />
 			<ToDoContainer style={{ boxSizing: 'border-box' }}>
-				<Font fontSize="1.2rem" fontWeight="600" fontColor="#19248b" marginBottom="2rem">
+				<Font fontSize="1.2rem" fontWeight="600" fontColor="#19248b" marginBottom="0.5rem">
 					Just Do It!
 				</Font>
-				{toDos[0] ? (
-					toDos.map((todo) => <ToDo key={todo.id} text={todo.text} id={+todo.id} category={todo.category} />)
+				<Font fontSize="0.8rem" fontWeight="500" marginBottom="2rem" style={{ color: '#4551be' }}>
+					현재 {toDoCount}개의 스케줄이 있습니다.
+				</Font>
+				<Font fontSize="1rem" fontWeight="600" fontColor="#19248b" marginBottom="0.5rem">
+					진행 예정
+				</Font>
+				{toDo[0] ? (
+					toDo.map((todo) => <ToDo key={todo.id} text={todo.text} id={+todo.id} category={todo.category} />)
 				) : (
-					<Font fontSize="0.8rem" fontWeight="400" fontColor="#5c69df">
-						할 일을 작성해주세요.
+					<Font fontSize="0.8rem" fontWeight="400" fontColor="#5c69df" marginBottom="1rem">
+						진행 예정인 스케줄이 아직 없습니다.
+					</Font>
+				)}
+				<Font fontSize="1rem" fontWeight="600" fontColor="#19248b" marginBottom="0.5rem" marginTop="3rem">
+					진행 중
+				</Font>
+				{doing[0] ? (
+					doing.map((todo) => <ToDo key={todo.id} text={todo.text} id={+todo.id} category={todo.category} />)
+				) : (
+					<Font fontSize="0.8rem" fontWeight="400" fontColor="#5c69df" marginBottom="1rem">
+						진행 중인 스케줄이 아직 없습니다.
+					</Font>
+				)}
+				<Font fontSize="1rem" fontWeight="600" fontColor="#19248b" marginBottom="0.5rem" marginTop="3rem">
+					완료
+				</Font>
+				{done[0] ? (
+					done.map((todo) => <ToDo key={todo.id} text={todo.text} id={+todo.id} category={todo.category} />)
+				) : (
+					<Font fontSize="0.8rem" fontWeight="400" fontColor="#5c69df" marginBottom="1rem">
+						완료된 스케줄이 아직 없습니다.
 					</Font>
 				)}
 			</ToDoContainer>
