@@ -66,6 +66,9 @@ function TodoList() {
 				<Font fontSize="1.5rem" fontColor="#5a5cdb" fontWeight="700">
 					Todo with Recoil state managements
 				</Font>
+				<Font fontSize="0.8rem" fontColor="#5a5cdb" fontWeight="400">
+					create by sangjunpark (ray)
+				</Font>
 				<a href="https://recoiljs.org/ko/">https://recoiljs.org/ko/</a>
 			</Header>
 			<DarkModeArticle>
